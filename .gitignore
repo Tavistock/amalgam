@@ -1,0 +1,15 @@
+/target
+/classes
+/checkouts
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+.hgignore
+.hg/
+.rebel_readline_history
+/resources/public/js/**
+figwheel_server.log
+src/amalgam/data.cljs
