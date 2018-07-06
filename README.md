@@ -1,5 +1,8 @@
 # Amalgam
 
+> "How do you identify? how do you i.d.?"
+> - 'Let's relate' by Of Montreal
+
 Tools to denormalize, normalize, and combine nested maps.
 
 [![Clojars Project](https://img.shields.io/clojars/v/tavistock/amalgam.svg)](https://clojars.org/tavistock/amalgam)
