@@ -1,14 +1,31 @@
-# amalgam
+# Amalgam
 
-A Clojure library designed to ... well, that part is up to you.
+Tools to denormalize, normalize, and combine nested maps.
+
+[![Clojars Project](https://img.shields.io/clojars/v/tavistock/amalgam.svg)](https://clojars.org/tavistock/amalgam)
 
 ## Usage
 
-FIXME
+``` clojure
+(ns my-ns.core
+  (:require [amalgam.core :refer [norm denorm combine]])
+  
+(def my-map {:id :a 
+             :child {:id :b 
+                     :child {:id :c 
+                             :value 1}}})
 
-## License
+(def normalized (norm my-map)) ;; => makes a map with :results and :entities
 
-Copyright © 2018 FIXME
+(def denormalized (denorm (:entities normalized)
+                          (:results normalized)
+                          []))
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+;; => {:id a :child (:amalgam.core/link :b)}
+
+(def denormalized (denorm (:entities normalized)
+                          (:results normalized)
+                          [[:child [:child]]]))
+
+;; => {:id :a :child {:id :b :child {:id :c :value 1}}}
+```
