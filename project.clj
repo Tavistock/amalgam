@@ -1,10 +1,11 @@
-(defproject amalgam "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+(defproject tavistock/amalgam "0.1.1"
+  :description "Tools to denormalize, normalize, and combine nested maps"
+  :url "http://github.com/Tavistock/amalgam"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.10.238"]]
+                 [org.clojure/clojurescript "1.10.238"]
+                 [medley "1.0.0"]]
   :plugins [[lein-cljsbuild "1.1.7"]
             [lein-doo "0.1.10"]
             [lein-figwheel "0.5.16"]]
@@ -14,12 +15,12 @@
   {:test {:dependencies [[org.mozilla/rhino "1.7.7"]]
           :cljsbuild
           {:builds
-           {:test
-            {:source-paths ["src" "test"]
+           [{:id "test"
+             :source-paths ["src" "test"]
              :compiler {:output-to "target/main.js"
                         :output-dir "target"
                         :main amalgam.test-runner
-                        :optimizations :simple}}}}}}
+                        :optimizations :simple}}]}}}
   :cljsbuild
   {:builds
    [{:id "client"
